@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-07-09 20:48:45
- * @LastEditTime: 2020-07-09 21:30:42
+ * @LastEditTime: 2020-07-09 21:37:21
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /leetcode/93.复原ip地址.js
@@ -20,7 +20,8 @@
 var restoreIpAddresses = function(s) {
     let ipArr = [];
     let search = function(cur,sub){
-        if(sub.length > 12) return;
+        // if(sub.length > 12) return;
+        if(sub.length > (4 - cur.length) * 3) return;
         if(cur.length === 4 && cur.join('') === s){
             ipArr.push(cur.join('.'))
         }else{
