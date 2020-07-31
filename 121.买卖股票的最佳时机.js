@@ -11,23 +11,21 @@
  */
 var maxProfit = function (prices) {
     if (!prices || !prices.length) return 0
-    let len = prices.length;
-    let valley = 0
-    let peak = 0;
+    let minPrice = Infinity;
+    let maxCount = 0;
     let i = 0
-    while (i < len) {
-        if (prices[i] < prices[valley]) {
-            valley = i
-            if (valley > peak) {
-                peak = valley
-            }
+    while (i < prices.length) {
+        if (prices[i] < minPrice) {
+            minPrice = prices[i]
         }
-        if (prices[i] > prices[peak]) {
-            peak = i
+        if (prices[i] - minPrice > maxCount) {
+            maxCount = prices[i] - minPrice
         }
         i++;
     }
-    return prices[peak] - prices[valley];
+    return maxCount;
 };
+console.log(maxProfit([7, 6, 4, 3, 1]))
+console.log(maxProfit([2, 4, 1]))
 // @lc code=end
 
