@@ -12,20 +12,15 @@
 var moveZeroes = function (nums) {
     if (!nums) return nums
 
-    let count = 0, len = nums.length
+    let len = nums.length
 
-    for (let i = 0; i < len; i++) {
-        if (nums[i] == 0 && i < len - count) {
-            count++;
-            nums.splice(i, 1)
-            i = -1
-        } else if (count > 0 && i >= len - count) {
-            nums.push(0)
-            count--
-
+    for (let i = 0, lastNonZeroFindAt = 0; i < len; i++) {
+        if (nums[i] != 0) {
+            let temp = nums[i];
+            nums[i] = nums[lastNonZeroFindAt]
+            nums[lastNonZeroFindAt++] = temp
         }
     }
-    console.log('nums', nums)
 
     return nums
 };
