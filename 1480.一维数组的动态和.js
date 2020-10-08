@@ -17,7 +17,6 @@ var runningSum = function (nums) {
     return newArr;
 
 };
-runningSum([3, 1, 2, 10, 1])
 
 function sum(newArr, nums, index) {
     if (index === 0) {
